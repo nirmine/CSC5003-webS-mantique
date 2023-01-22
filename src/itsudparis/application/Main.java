@@ -5,9 +5,7 @@
 
 package itsudparis.application;
 
-import com.opencsv.exceptions.CsvException;
-import org.apache.log4j.BasicConfigurator;
-import org.apache.log4j.PropertyConfigurator;
+
 
 import com.hp.hpl.jena.rdf.model.Model;
 import itsudparis.tools.JenaEngine;
