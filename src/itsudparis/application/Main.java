@@ -38,7 +38,7 @@ public class Main {
         // Read the dataSets
         //String salesPath = "/home/nirmine/Bureau/tpWebSemantic/dataSet/best_selling_artists.csv";
         String artistsPath = "src/data/artists.csv";
-        String albumsPath = "src/data/albums.csv";
+        String albumsPath = "src/data/artistAlbum.csv";
         // List<String[]> sales = readDataSet(salesPath);
         List<String[]> artists = readDataSet(artistsPath);
         List<String[]> albums = readDataSet(albumsPath);
@@ -56,22 +56,50 @@ public class Main {
                 String[] artist = artists.get(i);
                 JenaEngine.createInstanceOfClass(model, NS, "musicArtist", artist[1]); // artist name
                 JenaEngine.createInstanceOfClass(model, NS, "Instrument", artist[3]); // Instruments
+                JenaEngine.createInstanceOfClass(model, model.getNsPrefixURI("geo"), "SpatialThing", artist[5]); // Country
+
+                /** Adding properties */
+                JenaEngine.updateValueOfObjectProperty(model,NS ,artist[1], "origin", artist[5]); // musicArtist - Country
+
+                JenaEngine.updateValueOfDataTypeProperty(model,NS ,artist[1] , "realName", artist[1]);
+                JenaEngine.updateValueOfDataTypeProperty(model,NS ,artist[1] , "artName", artist[2]);
+                JenaEngine.updateValueOfDataTypeProperty(model,NS ,artist[1] , "Birthday", artist[4]);
+                JenaEngine.updateValueOfDataTypeProperty(model,NS ,artist[1] , "city", artist[5]);
+                JenaEngine.updateValueOfDataTypeProperty(model,NS ,artist[1] , "email", artist[7]);
+                JenaEngine.updateValueOfDataTypeProperty(model,NS ,artist[1] , "ZipCode", artist[8]);
+
+
                 /****/
             }
 
-            for (int j=1; j < 1000; j++) {
+            for (int j = 1; j < 2030; j++) {
                 String[] album = albums.get(j);
 //                 System.out.println(artist[0] + " " + artist[1]);
                 /** Here goes the code for adding the data to the ontologie **/
-                if (Integer.parseInt(album[1]) < 1000) {
-                    JenaEngine.createInstanceOfClass(model, NS, "Activity", album[4]); // Years where they where active
-                    JenaEngine.createInstanceOfClass(model, NS, "Record", album[2]); // Record / album
-                    JenaEngine.createInstanceOfClass(model, NS, "Genre", album[3]); // Genre of record
-                }
+                JenaEngine.createInstanceOfClass(model, NS, "Activity", album[13]); // Years where they where active
+                JenaEngine.createInstanceOfClass(model, NS, "Record", album[11]); // Record / album
+                JenaEngine.createInstanceOfClass(model, NS, "Genre", album[12]); // Genre of record
+
+                /** Adding properties */
+                JenaEngine.updateValueOfObjectProperty(model, NS,album[1], "primary_instrument", album[3]); // musicArtist - instrument
+                JenaEngine.updateValueOfObjectProperty(model, NS,album[1], "activity", album[13]); // musicArtist - Activity
+                JenaEngine.updateValueOfObjectProperty(model, NS,album[1], "published", album[11]); // musicArtist - Album
+//                JenaEngine.updateValueOfObjectProperty(model, NS,album[11], "producer", album[1]); // Album - musicArtist
+                JenaEngine.updateValueOfObjectProperty(model, NS,album[11], "genre", album[12]); // Album - Genre
+
+                JenaEngine.updateValueOfDataTypeProperty(model,NS ,album[11] , "TrackCount", album[14]);
+                JenaEngine.updateValueOfDataTypeProperty(model,NS ,album[11] , "SalesNumber", album[15]);
+                JenaEngine.updateValueOfDataTypeProperty(model,NS ,album[11] , "RollingStoneCritic", album[16]);
+                JenaEngine.updateValueOfDataTypeProperty(model,NS ,album[11] , "MTVCritic", album[17]);
+                JenaEngine.updateValueOfDataTypeProperty(model,NS ,album[11] , "MusicManiacCritic", album[18]);
+                JenaEngine.updateValueOfDataTypeProperty(model,NS ,album[11] , "PubYear", album[13]);
+
+
+
                 /****/
             }
 
-    
+
             // modifier le model
             JenaEngine.createInstanceOfClass(model, NS, "musicArtist", "nirmine");
             JenaEngine.createInstanceOfClass(model, NS, "musicArtist", "nirmine2");

@@ -10,7 +10,7 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Téléchargements/opencsv-3.8.jar!/" />
+          <root url="jar://$USER_HOME$/Téléchargements/commons-lang3-3.12.0.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -19,7 +19,7 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../../tpWebSemantic/FichiersTpJena2023/FichiersTpJena2023/lib/commons-codec-1.6.jar!/" />
+          <root url="jar://$USER_HOME$/Téléchargements/opencsv-5.5.1.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -28,7 +28,7 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../../tpWebSemantic/FichiersTpJena2023/FichiersTpJena2023/lib/httpclient-4.2.3.jar!/" />
+          <root url="jar://$USER_HOME$/Téléchargements/FichiersTpJena2023/FichiersTpJena2023/lib/commons-codec-1.6.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -37,7 +37,7 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../../tpWebSemantic/FichiersTpJena2023/FichiersTpJena2023/lib/httpcore-4.2.2.jar!/" />
+          <root url="jar://$USER_HOME$/Téléchargements/FichiersTpJena2023/FichiersTpJena2023/lib/httpclient-4.2.3.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -46,7 +46,7 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../../tpWebSemantic/FichiersTpJena2023/FichiersTpJena2023/lib/jcl-over-slf4j-1.6.4.jar!/" />
+          <root url="jar://$USER_HOME$/Téléchargements/FichiersTpJena2023/FichiersTpJena2023/lib/httpcore-4.2.2.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -55,7 +55,7 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../../tpWebSemantic/FichiersTpJena2023/FichiersTpJena2023/lib/jena-arq-2.10.0.jar!/" />
+          <root url="jar://$USER_HOME$/Téléchargements/FichiersTpJena2023/FichiersTpJena2023/lib/jcl-over-slf4j-1.6.4.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -64,7 +64,7 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../../tpWebSemantic/FichiersTpJena2023/FichiersTpJena2023/lib/jena-core-2.10.0.jar!/" />
+          <root url="jar://$USER_HOME$/Téléchargements/FichiersTpJena2023/FichiersTpJena2023/lib/jena-arq-2.10.0.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -73,7 +73,7 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../../tpWebSemantic/FichiersTpJena2023/FichiersTpJena2023/lib/jena-iri-0.9.5.jar!/" />
+          <root url="jar://$USER_HOME$/Téléchargements/FichiersTpJena2023/FichiersTpJena2023/lib/jena-core-2.10.0.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -82,7 +82,7 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../../tpWebSemantic/FichiersTpJena2023/FichiersTpJena2023/lib/jena-tdb-0.10.0.jar!/" />
+          <root url="jar://$USER_HOME$/Téléchargements/FichiersTpJena2023/FichiersTpJena2023/lib/jena-iri-0.9.5.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -91,7 +91,7 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../../tpWebSemantic/FichiersTpJena2023/FichiersTpJena2023/lib/log4j-1.2.16.jar!/" />
+          <root url="jar://$USER_HOME$/Téléchargements/FichiersTpJena2023/FichiersTpJena2023/lib/jena-tdb-0.10.0.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -100,7 +100,7 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../../tpWebSemantic/FichiersTpJena2023/FichiersTpJena2023/lib/slf4j-api-1.6.4.jar!/" />
+          <root url="jar://$USER_HOME$/Téléchargements/FichiersTpJena2023/FichiersTpJena2023/lib/log4j-1.2.16.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -109,7 +109,7 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../../tpWebSemantic/FichiersTpJena2023/FichiersTpJena2023/lib/slf4j-log4j12-1.6.4.jar!/" />
+          <root url="jar://$USER_HOME$/Téléchargements/FichiersTpJena2023/FichiersTpJena2023/lib/slf4j-log4j12-1.6.4.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -118,7 +118,7 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../../tpWebSemantic/FichiersTpJena2023/FichiersTpJena2023/lib/xercesImpl-2.10.0.jar!/" />
+          <root url="jar://$USER_HOME$/Téléchargements/FichiersTpJena2023/FichiersTpJena2023/lib/slf4j-api-1.6.4.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -127,7 +127,16 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../../tpWebSemantic/FichiersTpJena2023/FichiersTpJena2023/lib/xml-apis-1.4.01.jar!/" />
+          <root url="jar://$USER_HOME$/Téléchargements/FichiersTpJena2023/FichiersTpJena2023/lib/xercesImpl-2.10.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/Téléchargements/FichiersTpJena2023/FichiersTpJena2023/lib/xml-apis-1.4.01.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
