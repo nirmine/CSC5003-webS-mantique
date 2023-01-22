@@ -1,0 +1,18 @@
+id_x,   real_name
+art_name
+role
+year_of_birth
+country
+city
+email
+zip_code
+id_y
+artist_id
+album_title
+genre
+year_of_pub
+num_of_tracks
+num_of_sales
+rolling_stone_critic
+mtv_critic
+music_maniac_critic
