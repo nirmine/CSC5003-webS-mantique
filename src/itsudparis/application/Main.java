@@ -6,8 +6,6 @@
 package itsudparis.application;
 
 import com.opencsv.exceptions.CsvException;
-import org.apache.log4j.BasicConfigurator;
-import org.apache.log4j.PropertyConfigurator;
 
 import com.hp.hpl.jena.rdf.model.Model;
 import itsudparis.tools.JenaEngine;
@@ -27,7 +25,6 @@ import com.opencsv.CSVReaderBuilder;
  **/
 
 /**
- *
  * @author DO.ITSUDPARIS
  */
 public class Main {
@@ -37,14 +34,14 @@ public class Main {
      */
 
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, CsvException {
         // Read the dataSets
-        String salesPath = "/home/nirmine/Bureau/tpWebSemantic/dataSet/best_selling_artists.csv";
-        String artistsPath = "/home/nirmine/Bureau/tpWebSemantic/dataSet/artists.csv";
-        String albumsPath = "/home/nirmine/Bureau/tpWebSemantic/dataSet/albums.csv";
-        List<String[]> sales = readDataSet(salesPath);
-        List<String[]> artists = readDataSet(salesPath);
-        List<String[]> albums = readDataSet(salesPath);
+        //String salesPath = "/home/nirmine/Bureau/tpWebSemantic/dataSet/best_selling_artists.csv";
+        String artistsPath = "src/data/artists.csv";
+        String albumsPath = "src/data/albums.csv";
+        // List<String[]> sales = readDataSet(salesPath);
+        List<String[]> artists = readDataSet(artistsPath);
+        List<String[]> albums = readDataSet(albumsPath);
         String NS = "";
         // lire le model a partir d'une ontologie
         Model model = JenaEngine.readModel("data/music.owl");
@@ -53,6 +50,28 @@ public class Main {
             NS = model.getNsPrefixURI("mo");
             String NSFOAF = "http://xmlns.com/foaf/0.1/";
 
+            for (int i = 1; i < 1000; i++) {
+//                 System.out.println(artist[0] + " " + artist[1]);
+                /** Here goes the code for adding the data to the ontologie **/
+                String[] artist = artists.get(i);
+                JenaEngine.createInstanceOfClass(model, NS, "musicArtist", artist[1]); // artist name
+                JenaEngine.createInstanceOfClass(model, NS, "Instrument", artist[3]); // Instruments
+                /****/
+            }
+
+            for (int j=1; j < 1000; j++) {
+                String[] album = albums.get(j);
+//                 System.out.println(artist[0] + " " + artist[1]);
+                /** Here goes the code for adding the data to the ontologie **/
+                if (Integer.parseInt(album[1]) < 1000) {
+                    JenaEngine.createInstanceOfClass(model, NS, "Activity", album[4]); // Years where they where active
+                    JenaEngine.createInstanceOfClass(model, NS, "Record", album[2]); // Record / album
+                    JenaEngine.createInstanceOfClass(model, NS, "Genre", album[3]); // Genre of record
+                }
+                /****/
+            }
+
+    
             // modifier le model
             JenaEngine.createInstanceOfClass(model, NS, "musicArtist", "nirmine");
             JenaEngine.createInstanceOfClass(model, NS, "musicArtist", "nirmine2");
@@ -64,14 +83,14 @@ public class Main {
             // apply our rules on the owlInferencedModel
             Model inferedModel = JenaEngine.readInferencedModelFromRuleFile(owlInferencedModel, "data/rules.txt");
             // query on the model after inference
-            System.out.println(JenaEngine.executeQueryFile(inferedModel, "/home/nirmine/Bureau/travailCloud/cloud-computing-infrastructures/JenaProject/src/data/querry.txt"));
+            System.out.println(JenaEngine.executeQueryFile(inferedModel, "src/data/querry.txt"));
         } else {
             System.out.println("Error when reading model from ontology");
         }
 
     }
 
-    public static List<String[]> readDataSet(String filePath) throws IOException {
+    public static List<String[]> readDataSet(String filePath) throws IOException, CsvException {
 
         // Create a new reader
         Reader reader = null;
