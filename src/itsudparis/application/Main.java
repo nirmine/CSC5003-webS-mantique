@@ -111,7 +111,7 @@ public class Main {
             // apply our rules on the owlInferencedModel
             Model inferedModel = JenaEngine.readInferencedModelFromRuleFile(owlInferencedModel, "data/rules.txt");
             // query on the model after inference
-            System.out.println(JenaEngine.executeQueryFile(inferedModel, "src/data/querry.txt"));
+            System.out.println(JenaEngine.executeQueryFile(inferedModel, "src/data/query.txt"));
         } else {
             System.out.println("Error when reading model from ontology");
         }
