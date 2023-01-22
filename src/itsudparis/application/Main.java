@@ -48,7 +48,7 @@ public class Main {
         List<String[]> albums = readDataSet(albumsPath);
         String NS = "";
         // lire le model a partir d'une ontologie
-        Model model = JenaEngine.readModel("data/music.owl");
+        Model model = JenaEngine.readModel("data/musicOnto.owl");
         if (model != null) {
             //lire le Namespace de l’ontologie
             NS = model.getNsPrefixURI("mo");
