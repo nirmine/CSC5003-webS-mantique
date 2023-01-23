@@ -1,0 +1,14 @@
+prefix ns: <http://purl.org/ontology/mo/>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix owl: <http://www.w3.org/2002/07/owl#>
+prefix foaf: <http://xmlns.com/foaf/0.1/>
+prefix mo: <http://purl.org/ontology/mo/>
+prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
+
+SELECT ?album ?genre
+WHERE {
+   ?album a mo:Record;
+    mo:genre ?genre.
+}
+LIMIT 20
+

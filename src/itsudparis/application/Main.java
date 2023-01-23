@@ -5,15 +5,15 @@
 
 package itsudparis.application;
 
-<<<<<<< HEAD
+//<<<<<<< HEAD
 import com.hp.hpl.jena.sparql.vocabulary.FOAF;
-=======
-<<<<<<< HEAD
+//=======
+//<<<<<<< HEAD
 
-=======
->>>>>>> 546427273f38ded08b1846e410cf8cfde147dd25
+//=======
+//>>>>>>> 546427273f38ded08b1846e410cf8cfde147dd25
 import com.opencsv.exceptions.CsvException;
->>>>>>> 44abb81fd67f81418e82fb3b1962b977048e9b46
+//>>>>>>> 44abb81fd67f81418e82fb3b1962b977048e9b46
 
 import com.hp.hpl.jena.rdf.model.Model;
 import itsudparis.tools.JenaEngine;
@@ -46,8 +46,8 @@ public class Main {
 
     public static void main(String[] args) throws IOException, CsvException {
         // Read the dataSets
-        String artistsPath = "src/data/artists.csv";
-        String albumsPath = "src/data/artistAlbum.csv";
+        String artistsPath = "/home/sami/csc5003-bigdata/projetJena/CSC5003-webS-mantique/src/data/artists.csv";
+        String albumsPath = "/home/sami/csc5003-bigdata/projetJena/CSC5003-webS-mantique/src/data/artistAlbum.csv";
         List<String[]> artists = readDataSet(artistsPath);
         List<String[]> albums = readDataSet(albumsPath);
 
@@ -61,7 +61,6 @@ public class Main {
             String NSFOAF = "http://xmlns.com/foaf/0.1/";
 
             for (int i = 1; i < 1000; i++) {
-//                 System.out.println(artist[0] + " " + artist[1]);
                 /** Here goes the code for adding the data to the ontologie **/
                 /*List<String> intruments=new ArrayList<>(Arrays.asList("bassist","violinist","pianist","guitarist","violoncellist","drummer"));
                 for(String ch : intruments){
@@ -114,19 +113,20 @@ public class Main {
                 /****/
             }
 
-
-            // modifier le model
-            JenaEngine.createInstanceOfClass(model, NS, "musicArtist", "nirmine");
-            JenaEngine.createInstanceOfClass(model, NS, "musicArtist", "nirmine2");
-            //JenaEngine.updateValueOfDataTypeProperty(model, NS,"nirmine", "name", "nirmine");
-            /*JenaEngine.updateValueOfObjectProperty(model, NS,"nirmine", "member_of", "bts");*/
-
             //apply owl rules on the model
             Model owlInferencedModel = JenaEngine.readInferencedModelFromRuleFile(model, "data/owlrules.txt");
+
             // apply our rules on the owlInferencedModel
             Model inferedModel = JenaEngine.readInferencedModelFromRuleFile(owlInferencedModel, "data/rules.txt");
+
             // query on the model after inference
-            System.out.println(JenaEngine.executeQueryFile(inferedModel, "src/data/query.txt"));
+            System.out.println(JenaEngine.executeQueryFile(inferedModel, "/home/sami/csc5003-bigdata/projetJena/CSC5003-webS-mantique/src/data/queries/album-genre.txt"));
+            System.out.println(JenaEngine.executeQueryFile(inferedModel, "/home/sami/csc5003-bigdata/projetJena/CSC5003-webS-mantique/src/data/queries/artist-best-album.txt"));
+            System.out.println(JenaEngine.executeQueryFile(inferedModel, "/home/sami/csc5003-bigdata/projetJena/CSC5003-webS-mantique/src/data/queries/artist-genre.txt"));
+            System.out.println(JenaEngine.executeQueryFile(inferedModel, "/home/sami/csc5003-bigdata/projetJena/CSC5003-webS-mantique/src/data/queries/best-selling-albums.txt"));
+            System.out.println(JenaEngine.executeQueryFile(inferedModel, "/home/sami/csc5003-bigdata/projetJena/CSC5003-webS-mantique/src/data/queries/instruments.txt"));
+
+
         } else {
             System.out.println("Error when reading model from ontology");
         }

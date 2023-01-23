@@ -14,4 +14,3 @@
 [rule5: (?a rdf:type foaf:Agent) (?a mo:role ?role) equal(?role,'guitarist')  -> (?a mo:primary_instrument ?role)]
 [rule6: (?a rdf:type foaf:Agent) (?a mo:role ?role) equal(?role,'violoncellist')  -> (?a mo:primary_instrument ?role)]
 [rule7: (?a rdf:type foaf:Agent) (?a mo:role ?role) equal(?role,'drummer')  -> (?a mo:primary_instrument ?role)]
-[rule8: (?a rdf:type foaf:Agent) (?b rdf:type foaf:Agent) ]

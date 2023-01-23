@@ -3,10 +3,12 @@ prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 prefix owl: <http://www.w3.org/2002/07/owl#>
 prefix foaf: <http://xmlns.com/foaf/0.1/>
 prefix mo: <http://purl.org/ontology/mo/>
-prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
 
-SELECT    ?instru
+SELECT ?artist ?genre
 WHERE {
-   ?p rdf:type foaf:Agent.
-   OPTIONAL { ?p mo:primary_instrument ?instru  }
+   ?artist a foaf:Agent;
+           mo:published ?album.
+   ?album mo:genre ?genre.
 }
+ORDER BY ?genre
+LIMIT 20

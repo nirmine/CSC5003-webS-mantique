@@ -1,0 +1,20 @@
+prefix ns: <http://purl.org/ontology/mo/>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix owl: <http://www.w3.org/2002/07/owl#>
+prefix foaf: <http://xmlns.com/foaf/0.1/>
+prefix mo: <http://purl.org/ontology/mo/>
+prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
+prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+
+
+SELECT ?artist (avg(xsd:decimal(?rolling_stone) + xsd:decimal(?mtv) + xsd:decimal(?music_maniac)) as ?mean) ?album
+WHERE {
+   ?artist a foaf:Agent;
+           mo:published ?album.
+   ?album mo:RollingStoneCritic ?rolling_stone;
+          mo:MTVCritic ?mtv;
+          mo:MusicManiacCritic ?music_maniac;
+}
+GROUP BY ?artist ?album
+ORDER BY DESC(?mean)
+LIMIT 20
