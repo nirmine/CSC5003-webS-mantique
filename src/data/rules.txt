@@ -1,5 +1,17 @@
-@prefix ns: <http://www.semanticweb.org/amelbouzeghoub/ontologies/2021/0/untitled-ontology-19>.
+@prefix ns: <http://purl.org/ontology/mo/>.
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix mo: <http://purl.org/ontology/mo/>.
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>.
 
 @include <OWL>.
 
+[rule1: (?a rdf:type foaf:Agent ) (?a mo:role ?role) equal(?role,'dancer') -> (?a rdf:type mo:Performer)]
+[rule2: (?a rdf:type foaf:Agent) (?a mo:role ?role) equal(?role,'violinist')  -> (?a mo:primary_instrument ?role)]
+[rule3: (?a rdf:type foaf:Agent) (?a mo:role ?role) equal(?role,'bassist')  -> (?a mo:primary_instrument ?role)]
+[rule4: (?a rdf:type foaf:Agent) (?a mo:role ?role) equal(?role,'pianist')  -> (?a mo:primary_instrument ?role)]
+[rule5: (?a rdf:type foaf:Agent) (?a mo:role ?role) equal(?role,'guitarist')  -> (?a mo:primary_instrument ?role)]
+[rule6: (?a rdf:type foaf:Agent) (?a mo:role ?role) equal(?role,'violoncellist')  -> (?a mo:primary_instrument ?role)]
+[rule7: (?a rdf:type foaf:Agent) (?a mo:role ?role) equal(?role,'drummer')  -> (?a mo:primary_instrument ?role)]
+[rule8: (?a rdf:type foaf:Agent) (?b rdf:type foaf:Agent) ]

@@ -5,6 +5,7 @@
 
 package itsudparis.application;
 
+import com.hp.hpl.jena.sparql.vocabulary.FOAF;
 import com.opencsv.exceptions.CsvException;
 
 import com.hp.hpl.jena.rdf.model.Model;
@@ -16,6 +17,8 @@ import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.opencsv.CSVReader;
@@ -36,16 +39,16 @@ public class Main {
 
     public static void main(String[] args) throws IOException, CsvException {
         // Read the dataSets
-        //String salesPath = "/home/nirmine/Bureau/tpWebSemantic/dataSet/best_selling_artists.csv";
         String artistsPath = "src/data/artists.csv";
         String albumsPath = "src/data/artistAlbum.csv";
-        // List<String[]> sales = readDataSet(salesPath);
         List<String[]> artists = readDataSet(artistsPath);
         List<String[]> albums = readDataSet(albumsPath);
+
         String NS = "";
         // lire le model a partir d'une ontologie
         Model model = JenaEngine.readModel("data/musicOnto.owl");
         if (model != null) {
+            //System.out.println(model.getNsPrefixURI("geo"));
             //lire le Namespace de l’ontologie
             NS = model.getNsPrefixURI("mo");
             String NSFOAF = "http://xmlns.com/foaf/0.1/";
@@ -53,8 +56,12 @@ public class Main {
             for (int i = 1; i < 1000; i++) {
 //                 System.out.println(artist[0] + " " + artist[1]);
                 /** Here goes the code for adding the data to the ontologie **/
+                /*List<String> intruments=new ArrayList<>(Arrays.asList("bassist","violinist","pianist","guitarist","violoncellist","drummer"));
+                for(String ch : intruments){
+                    JenaEngine.createInstanceOfClass(model, NSFOAF, "Instruments", ch); // instruments
+                }*/
                 String[] artist = artists.get(i);
-                JenaEngine.createInstanceOfClass(model, NS, "musicArtist", artist[1]); // artist name
+                JenaEngine.createInstanceOfClass(model, NSFOAF, "Agent", artist[1]); // artist name
                 JenaEngine.createInstanceOfClass(model, NS, "Instrument", artist[3]); // Instruments
                 JenaEngine.createInstanceOfClass(model, model.getNsPrefixURI("geo"), "SpatialThing", artist[5]); // Country
 
@@ -63,12 +70,13 @@ public class Main {
 
                 JenaEngine.updateValueOfDataTypeProperty(model,NS ,artist[1] , "realName", artist[1]);
                 JenaEngine.updateValueOfDataTypeProperty(model,NS ,artist[1] , "artName", artist[2]);
-                JenaEngine.updateValueOfDataTypeProperty(model,NS ,artist[1] , "Birthday", artist[4]);
+                JenaEngine.updateValueOfDataTypeProperty(model,NS ,artist[1] , "birthYear", artist[4]);
                 JenaEngine.updateValueOfDataTypeProperty(model,NS ,artist[1] , "city", artist[5]);
                 JenaEngine.updateValueOfDataTypeProperty(model,NS ,artist[1] , "email", artist[7]);
-                JenaEngine.updateValueOfDataTypeProperty(model,NS ,artist[1] , "ZipCode", artist[8]);
-
-
+                JenaEngine.updateValueOfDataTypeProperty(model,NS ,artist[1] , "zipCode", artist[8]);
+                JenaEngine.updateValueOfDataTypeProperty(model,NS ,artist[1] , "role", artist[3]);
+                /*if(artist[3].equals("dancer"))
+                System.out.println("role: "+artist[3]);*/
                 /****/
             }
 
@@ -81,7 +89,7 @@ public class Main {
                 JenaEngine.createInstanceOfClass(model, NS, "Genre", album[12]); // Genre of record
 
                 /** Adding properties */
-                JenaEngine.updateValueOfObjectProperty(model, NS,album[1], "primary_instrument", album[3]); // musicArtist - instrument
+                //JenaEngine.updateValueOfObjectProperty(model, NS,album[1], "primary_instrument", album[3]); // musicArtist - instrument
                 JenaEngine.updateValueOfObjectProperty(model, NS,album[1], "activity", album[13]); // musicArtist - Activity
                 JenaEngine.updateValueOfObjectProperty(model, NS,album[1], "published", album[11]); // musicArtist - Album
 //                JenaEngine.updateValueOfObjectProperty(model, NS,album[11], "producer", album[1]); // Album - musicArtist

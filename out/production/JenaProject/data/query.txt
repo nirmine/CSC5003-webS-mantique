@@ -5,8 +5,8 @@ prefix foaf: <http://xmlns.com/foaf/0.1/>
 prefix mo: <http://purl.org/ontology/mo/>
 prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
 
-SELECT   ?p
+SELECT    ?instru
 WHERE {
-
-   ?p rdf:type mo:Genre.
+   ?p rdf:type foaf:Agent.
+   OPTIONAL { ?p mo:primary_instrument ?instru  }
 }
