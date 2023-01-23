@@ -5,8 +5,15 @@
 
 package itsudparis.application;
 
+<<<<<<< HEAD
 import com.hp.hpl.jena.sparql.vocabulary.FOAF;
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> 546427273f38ded08b1846e410cf8cfde147dd25
 import com.opencsv.exceptions.CsvException;
+>>>>>>> 44abb81fd67f81418e82fb3b1962b977048e9b46
 
 import com.hp.hpl.jena.rdf.model.Model;
 import itsudparis.tools.JenaEngine;
